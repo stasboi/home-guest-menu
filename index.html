@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#233e34">
+  <meta name="description" content="An invitation to my home table. Explore 37 dishes, browse photos and choose your favorites.">
+  <title>Come Hungry — A Menu at My Place</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+    :root{--ink:#20382e;--ink2:#465c50;--moss:#315c49;--sage:#e5ebe2;--cream:#faf8f2;--paper:#fffefb;--terra:#ad6344;--gold:#b9915c;--line:#e2e3d9;--shadow:0 13px 35px rgba(28,49,39,.07);font-synthesis:none}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.5}button,input,textarea{font:inherit}button{cursor:pointer}a{color:inherit}img{display:block;max-width:100%}
+    .shell{max-width:1250px;padding:0 30px;margin:0 auto}
+    .announcement{background:#233e34;color:#f4f0e4;text-align:center;padding:9px 16px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    .header{height:84px;display:flex;align-items:center;justify-content:space-between;gap:18px}.logo{font-family:'DM Serif Display',Georgia,serif;font-size:29px;letter-spacing:-.03em;text-decoration:none;white-space:nowrap}.logo i{color:var(--terra);font-weight:400}.header-right{display:flex;align-items:center;gap:25px;font-size:13px;font-weight:700}.header-right a{text-decoration:none;color:#57695d}.header-right a:hover{text-decoration:underline}.header-btn,.btn-primary{background:var(--moss);color:#fff;border:1px solid var(--moss);border-radius:50px;padding:12px 20px;font-weight:700;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:transform .2s,background .2s}.header-btn:hover,.btn-primary:hover{background:#204232;transform:translateY(-1px)}
+    .hero{position:relative;display:grid;grid-template-columns:1.1fr .9fr;overflow:hidden;border-radius:26px;min-height:474px;background:var(--sage);box-shadow:var(--shadow)}.hero-copy{padding:59px 52px 49px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);margin:0 0 18px}.hero h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(57px,6vw,86px);font-weight:400;letter-spacing:-.055em;line-height:.99;margin:0 0 25px}.hero h1 em{color:var(--terra);font-style:italic}.hero-sub{max-width:370px;color:#4c6656;font-size:16px;line-height:1.75;margin:0 0 29px}.hero-ctas{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.outline{color:var(--moss);text-decoration:none;background:transparent;border:1px solid #789185;border-radius:50px;padding:12px 18px;font-weight:700;font-size:13px}.hero-media{position:relative;background:#b2c5b7;min-height:380px}.hero-media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1}.hero-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:94px;color:#2e5941;background:radial-gradient(circle at 60% 45%,#d9e2d2,#9fbaa7)}.hero-fallback small{font-family:Georgia,serif;font-size:20px;color:#416653}.hero-media:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(33,58,42,.12),transparent 44%)}.hero-media .overlay{position:absolute;right:24px;bottom:22px;z-index:2;background:rgba(255,254,248,.94);padding:14px 18px;border-radius:11px;box-shadow:var(--shadow);max-width:220px}.overlay b{font-family:'DM Serif Display',Georgia,serif;font-size:19px;font-weight:400}.overlay small{display:block;font-size:10px;letter-spacing:.12em;color:var(--terra);text-transform:uppercase;margin-bottom:3px}
+    .values{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:30px 4px 31px;border-bottom:1px solid var(--line)}.value{display:flex;justify-content:center;gap:13px;align-items:center}.value-icon{height:40px;width:40px;border-radius:50%;background:#edece0;display:grid;place-items:center;font-size:19px}.value b{display:block;font-size:13px}.value small{color:#7f8e80;font-size:11px}
+    .menu{padding-top:69px;padding-bottom:42px;scroll-margin-top:30px}.menu-top{display:flex;justify-content:space-between;align-items:flex-end;gap:25px}.menu h2,.closing h2{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(39px,5vw,57px);letter-spacing:-.04em;font-weight:400;line-height:1.1;margin:7px 0 10px}.menu-intro{color:#758076;font-size:14px;margin:0}.photo-disclaimer{border:1px solid var(--line);border-radius:100px;padding:10px 16px;font-size:11px;color:#718076;background:#fffdf8;display:flex;gap:7px;align-items:center;max-width:390px}
+    .tools{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:32px 0 26px;flex-wrap:wrap}.tabs{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid #d8ddd4;background:#fff;border-radius:99px;color:#4b6153;padding:10px 16px;font-size:12px;font-weight:800;transition:.2s}.chip:hover{border-color:var(--moss)}.chip.active{background:var(--moss);border-color:var(--moss);color:#fff}.search{display:flex;align-items:center;gap:9px;border:1px solid #d8ddd4;background:#fff;padding:0 16px;border-radius:999px;min-height:42px;width:228px}.search svg{width:18px;height:18px;color:#7d8d7e;flex:none}.search input{min-width:0;width:100%;border:none;background:transparent;outline:none;font-size:13px;color:var(--ink)}
+    .results{font-size:12px;color:#849085;margin:0 0 17px;display:flex;justify-content:space-between}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}.dish{background:#fff;border:1px solid #ebe9e2;border-radius:17px;overflow:hidden;min-width:0;display:flex;flex-direction:column;transition:transform .23s,box-shadow .23s,border-color .23s;box-shadow:0 6px 16px rgba(22,41,25,.025)}.dish:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.dish.selected{border-color:#8aaa96;box-shadow:0 0 0 1px #8aaa96}.photo-wrap{position:relative;aspect-ratio:1.3;overflow:hidden;background:linear-gradient(135deg,#ece9d6,#c2d4c4);isolation:isolate}.photo-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.dish:hover img{transform:scale(1.045)}.photo-wrap .photo-fallback{position:absolute;inset:0;z-index:-1;display:grid;place-content:center;text-align:center;color:#667d70}.photo-fallback span{font-size:49px}.photo-fallback small{font-family:Georgia,serif;font-size:15px;max-width:170px}.photo-wrap.failed img{display:none}.photo-wrap img{background:#d7ded1}.photo-wrap .photo-fallback{z-index:0;pointer-events:none;background:linear-gradient(135deg,#e7e7db,#cedcd1)}.photo-wrap .photo-fallback span{display:none}.photo-wrap .photo-fallback small{font:600 12px/1.5 'DM Sans',sans-serif;color:#6f8377;letter-spacing:.03em}.photo-wrap:not(.failed) .photo-fallback{display:none}.source-pill{opacity:1!important} .photo-status{color:#607867;font-size:11px}.tag{position:absolute;top:12px;left:12px;z-index:2;background:rgba(255,255,250,.94);padding:6px 11px;border-radius:50px;color:#315644;font-size:10px;letter-spacing:.05em;font-weight:800;box-shadow:0 2px 8px rgba(0,0,0,.08)}.source-pill{position:absolute;right:11px;bottom:11px;z-index:2;background:rgba(255,254,250,.95);color:#4b6954;padding:5px 8px;font-size:10px;font-weight:700;text-decoration:none;border-radius:6px;opacity:0;transition:opacity .2s}.dish:hover .source-pill,.source-pill:focus{opacity:1}.dish-body{padding:17px 17px 14px;display:flex;flex-direction:column;flex:1}.dish-meta{display:flex;gap:7px;align-items:center;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#a26b4b;font-weight:800;margin:0 0 8px}.dish h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:22px;line-height:1.12;letter-spacing:-.012em;margin:0 0 9px;min-height:48px}.dish-desc{font-size:12px;color:#738178;line-height:1.65;min-height:56px;margin:0 0 14px;flex:1}.dish-foot{border-top:1px solid #f0eee8;padding-top:12px;display:flex;justify-content:space-between;align-items:center;gap:6px}.detail{font-size:10px;color:#849185;display:flex;align-items:center;gap:5px}.add{background:var(--moss);color:white;border:1px solid var(--moss);border-radius:999px;padding:8px 12px;font-size:11px;font-weight:800;white-space:nowrap;display:flex;gap:6px;align-items:center;transition:.2s}.add:hover{background:#1f4835}.selected .add{background:#eef3ee;border-color:#bbcfc2;color:#284c3a}.add svg{width:13px;height:13px}
+    .empty{text-align:center;padding:55px 15px;color:#718375;border:1px dashed #cdd7cc;border-radius:16px;background:#fff}.empty b{color:var(--ink);font-family:'DM Serif Display',serif;font-size:25px;font-weight:400;display:block}
+    .closing{margin:30px auto 35px;display:grid;grid-template-columns:1fr 1fr;background:#e9ede4;overflow:hidden;border-radius:22px}.closing-content{padding:51px 53px}.closing p{max-width:460px;color:#607365;line-height:1.8;font-size:14px;margin-bottom:26px}.closing-photo{background:#bdcbbb;position:relative;min-height:320px}.closing-photo img{position:absolute;width:100%;height:100%;inset:0;object-fit:cover;z-index:1}.closing-fallback{position:absolute;inset:0;display:grid;place-content:center;text-align:center;background:radial-gradient(circle at 45% 55%,#dae1cc,#9bb2a0);font-size:100px}.closing-photo:before{content:'Made for sharing';font-family:'DM Serif Display',serif;position:absolute;z-index:1;background:#faf9ee;color:#2e4a3c;padding:15px 24px;bottom:22px;left:20px;border-radius:6px;font-size:20px;box-shadow:var(--shadow)}.tips{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-bottom:43px}.tip{padding:8px 0}.tip h4{margin:0 0 6px;font-size:13px}.tip p{color:#78877d;font-size:12px;line-height:1.7;margin:0}.tip-icon{font-size:24px;margin-bottom:10px}.credits{border-top:1px solid var(--line);padding:24px 0 30px;color:#88958a;font-size:12px}.credits summary{cursor:pointer;color:#526c5b;font-weight:800}.credits p{line-height:1.8}.credit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px 20px;margin-top:12px}.credit-grid a{font-size:11px;text-decoration:underline;text-underline-offset:3px;line-height:1.5;color:#718274}.footer{background:#203a30;color:#e8f0e7}.footer-inner{display:flex;justify-content:space-between;align-items:center;padding:24px 0;gap:20px;font-size:11px;color:#adbeae}.footer strong{font-family:'DM Serif Display',serif;font-weight:400;font-size:22px;color:white}
+    .tray{position:fixed;bottom:20px;left:50%;transform:translate(-50%,120px);opacity:0;pointer-events:none;z-index:45;background:var(--ink);color:#fff;box-shadow:0 20px 45px rgba(25,40,28,.3);border-radius:99px;padding:11px 12px 11px 22px;display:flex;align-items:center;gap:21px;min-width:min(460px,calc(100vw - 32px));transition:transform .28s,opacity .28s}.tray.show{opacity:1;pointer-events:auto;transform:translate(-50%,0)}.tray-text{flex:1;font-size:13px;font-weight:700;white-space:nowrap}.tray small{font-size:10px;color:#b8d0c1;display:block;font-weight:400}.tray button{background:#f4ede1;border:none;border-radius:99px;padding:11px 18px;color:#294535;font-size:12px;font-weight:800;white-space:nowrap}
+    .veil{position:fixed;inset:0;background:rgba(15,31,22,.54);opacity:0;pointer-events:none;transition:opacity .25s;z-index:80}.veil.show{opacity:1;pointer-events:auto}.drawer{position:fixed;inset:0 0 0 auto;width:min(505px,100%);background:var(--cream);z-index:81;transform:translateX(102%);transition:transform .3s;box-shadow:-20px 0 60px rgba(0,0,0,.18);display:flex;flex-direction:column}.drawer.show{transform:translateX(0)}.drawer-head{padding:27px 27px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.drawer-head h2{font-family:'DM Serif Display',serif;font-size:32px;line-height:1;margin:0;font-weight:400}.close{width:39px;height:39px;border:1px solid #d6ded4;background:transparent;border-radius:50%;font-size:22px}.drawer-scroll{padding:24px 27px;overflow:auto;flex:1}.drawer-copy{font-size:13px;color:#6f8274;margin:0 0 18px}.picked-item{display:flex;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid #e4e8df}.picked-item img{width:65px;height:54px;border-radius:7px;object-fit:cover;background:#dfe6dc}.picked-item .mini{width:65px;height:54px;border-radius:7px;background:var(--sage);display:none;place-items:center;font-size:26px}.picked-item strong{display:block;font-size:13px;line-height:1.3}.picked-item small{display:block;color:#819084;font-size:11px;margin-top:3px}.picked-item .remove{margin-left:auto;background:none;border:0;color:#985c45;padding:8px;font-size:19px}.field{margin-top:25px}.field label{display:block;color:#47624f;font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin-bottom:8px}.field input,.field textarea{width:100%;background:white;border:1px solid #d7dfd4;border-radius:10px;padding:13px 14px;outline:none;font-size:13px;color:var(--ink)}.field textarea{min-height:90px;resize:vertical;line-height:1.55}.field input:focus,.field textarea:focus{border-color:var(--moss);box-shadow:0 0 0 2px #dceade}.drawer-bottom{border-top:1px solid var(--line);padding:19px 25px 24px;background:#fffdf9}.drawer-bottom button{border-radius:40px;padding:13px 18px;font-size:13px;font-weight:800}.btn-copy{width:100%;border:none;background:var(--moss);color:white}.share-row{display:flex;gap:10px;margin-top:8px}.share-row button{flex:1}.btn-alt{background:#e8eee6;color:var(--moss);border:1px solid #d4e3d6}.btn-clear{background:transparent;border:1px solid #e3d7d1;color:#98684b}.drawer-hint{font-size:10px;color:#95a096;text-align:center;margin:11px 0 0}.toast{position:fixed;bottom:100px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#263d30;color:white;z-index:100;border-radius:99px;padding:12px 22px;box-shadow:var(--shadow);font-size:12px;transition:all .23s}.toast.show{opacity:1;transform:translate(-50%,0)}.scroll-top{position:fixed;bottom:25px;right:24px;border:1px solid #d6ded5;background:#fff;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-size:22px;box-shadow:var(--shadow);color:var(--moss);z-index:42;text-decoration:none}
+    @media(max-width:1060px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-copy{padding:50px 38px}.tips{grid-template-columns:repeat(2,1fr)}.dish h3{font-size:21px}}
+    @media(max-width:740px){.shell{padding:0 18px}.header{height:69px}.logo{font-size:23px}.header-right a{display:none}.header-btn{padding:10px 14px;font-size:11px}.hero{grid-template-columns:1fr;min-height:0;border-radius:16px}.hero-copy{padding:42px 27px 32px}.hero h1{font-size:58px}.hero-sub{font-size:14px}.hero-media{height:260px;min-height:0}.hero-media .overlay{bottom:15px;right:15px;padding:9px 12px}.values{padding:24px 0;gap:8px}.value{flex-direction:column;text-align:center;gap:6px}.value-icon{width:34px;height:34px;font-size:16px}.value b{font-size:11px}.value small{font-size:10px}.menu{padding-top:52px}.menu-top{display:block}.photo-disclaimer{max-width:100%;margin-top:17px;display:inline-flex;border-radius:9px}.tools{margin-top:23px;align-items:stretch}.tabs{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}.chip{white-space:nowrap}.search{width:100%}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.dish{border-radius:13px}.dish-body{padding:12px}.dish h3{font-size:19px;min-height:46px;margin-bottom:7px}.dish-desc{font-size:11px;line-height:1.5;min-height:58px}.detail{font-size:9px}.add{font-size:10px;padding:7px 9px}.photo-wrap{aspect-ratio:1.17}.tag{top:8px;left:8px;padding:5px 8px;font-size:9px}.source-pill{opacity:.85;right:7px;bottom:7px;font-size:9px}.closing{grid-template-columns:1fr}.closing-content{padding:34px 26px}.closing-photo{min-height:240px}.tips{grid-template-columns:repeat(2,1fr);gap:14px 22px}.credit-grid{grid-template-columns:1fr}.footer-inner{display:block;text-align:center}.footer-inner div{margin-top:7px}.scroll-top{display:none}.drawer-head{padding:21px 20px}.drawer-scroll{padding:20px}.drawer-bottom{padding:16px 20px}.tray{bottom:12px}}
+    @media(max-width:390px){.grid{gap:9px}.dish h3{font-size:17px}.dish-body{padding:10px}.dish-desc{font-size:10px}.dish-foot{display:block}.add{margin-top:8px;width:100%;justify-content:center}.hero h1{font-size:51px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <div class="announcement">A little dinner party, just for friends ✦ no reservations required</div>
+  <header class="header shell">
+    <a class="logo" href="#top">at my <i>table.</i></a>
+    <nav class="header-right" aria-label="Primary navigation"><a href="#menu">Explore the menu</a><a href="#about">A note from the kitchen</a><button class="header-btn" id="headerOrder">My picks <span id="headerCount">(0)</span> ↗</button></nav>
+  </header>
+  <main id="top">
+    <section class="shell"><div class="hero">
+      <div class="hero-copy"><p class="eyebrow">THE HOME KITCHEN · YOU'RE INVITED</p><h1>Come hungry.<br><em>Leave happy.</em></h1><p class="hero-sub">Good food is better with friends. Have a look around, pick whatever sounds delicious, and I'll do my best to make it happen.</p><div class="hero-ctas"><a class="btn-primary" href="#menu">Explore the menu <span aria-hidden="true">↗</span></a><a class="outline" href="#about">How it works</a></div></div>
+      <div class="hero-media"><div class="hero-fallback" aria-hidden="true" style="font-size:20px"><small>Good food, good company.</small></div><img id="heroImage" alt="A homemade dish of braised beef, for illustration" decoding="async" onerror="this.style.display='none'"><div class="overlay"><small>At the heart of it</small><b>Cooked with care ♡</b></div></div>
+    </div>
+    <div class="values"><div class="value"><span class="value-icon">🍲</span><div><b>37 dishes to explore</b><small>From comforting stews to light bites</small></div></div><div class="value"><span class="value-icon">🫒</span><div><b>A little world tour</b><small>Chinese, Italian, French & beyond</small></div></div><div class="value"><span class="value-icon">💌</span><div><b>Pick what you fancy</b><small>Send me your favorites in advance</small></div></div></div></section>
+    <section id="menu" class="menu shell"><div class="menu-top"><div><p class="eyebrow">GOOD THINGS TO SHARE</p><h2>The menu</h2><p class="menu-intro">A mix of comfort-food favorites, kitchen experiments, and dishes I love.</p></div><div class="photo-disclaimer"><span aria-hidden="true">📷</span>Reference food photographs, not photos of my cooking. Actual dishes may look different.</div></div>
+      <div class="tools"><div class="tabs" id="filterTabs" role="group" aria-label="Filter menu category"><button class="chip active" data-category="all" aria-pressed="true">All dishes · 37</button><button class="chip" data-category="mains" aria-pressed="false">🍲 Mains</button><button class="chip" data-category="pasta" aria-pressed="false">🍝 Pasta</button><button class="chip" data-category="sides" aria-pressed="false">🥗 Small plates</button><button class="chip" data-category="breakfast" aria-pressed="false">🍞 Breakfast & treats</button></div><label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input id="searchInput" aria-label="Search dishes" placeholder="Search dishes…" autocomplete="off"></label></div>
+      <p class="results"><span id="resultCount">Showing all 37 dishes</span><span>Tap “Add to my picks” to build your order ♡</span></p><div class="grid" id="menuGrid" aria-live="polite"></div>
+    </section>
+    <section id="about" class="shell"><div class="closing"><div class="closing-content"><p class="eyebrow">A NOTE FROM THE KITCHEN</p><h2>Make yourself<br>at home.</h2><p>There is no price list and absolutely no pressure to choose a full meal. Select a few dishes that catch your eye, add any allergies or requests, and send me your picks. I'll check ingredient availability and we can plan something delicious together.</p><button class="btn-primary" id="closingOrder">Tell me your favorites ↗</button></div><div class="closing-photo"><div class="closing-fallback" aria-hidden="true">🍝</div><img id="closingImage" alt="A plate of classic Italian pasta" loading="lazy" onerror="this.style.display='none'"></div></div>
+    <div class="tips"><div class="tip"><div class="tip-icon">🕰️</div><h4>A heads-up helps</h4><p>A day or more in advance is ideal for dishes that need shopping or slow cooking.</p></div><div class="tip"><div class="tip-icon">🌶️</div><h4>My usual flavor</h4><p>Savory and aromatic, not overly sweet, with medium heat where appropriate. Happy to adjust.</p></div><div class="tip"><div class="tip-icon">🐟</div><h4>Raw fish dishes</h4><p>Only offered when suitable sashimi-grade fish is available, with careful handling.</p></div><div class="tip"><div class="tip-icon">✨</div><h4>Something else?</h4><p>Have a special craving? Just write it in your note. We can figure it out together.</p></div></div>
+    <details class="credits"><summary>Photography and image credits · click to expand</summary><p>Food photography is sourced from online reference images on Wikimedia Commons. Photographers, applicable Creative Commons licenses, source files, and further credits are linked below. Photographs may depict a related preparation rather than the exact recipe. Some image crops are used to fit the cards. Photo hosting requires an internet connection.</p><div id="creditGrid" class="credit-grid"></div></details></section>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><strong>at my table.</strong><div>Made for friends, with love and a little extra garlic. ♡</div><div>Menu only · not a commercial restaurant</div></div></footer>
+  <div class="tray" id="tray" role="status"><div class="tray-text"><span id="trayCount">0 dishes picked</span><small>Ready to tell me what you'd like?</small></div><button id="trayOpen">Review my picks ↗</button></div>
+  <div class="veil" id="veil"></div><aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true"><div class="drawer-head"><div><div class="eyebrow" style="margin-bottom:5px">YOUR WISH LIST</div><h2 id="drawerTitle">My picks <span id="modalCount" style="color:var(--terra)">0</span></h2></div><button class="close" id="closeDrawer" aria-label="Close menu selection">×</button></div><div class="drawer-scroll"><p class="drawer-copy">Choose as many as you like. This is a wish list, not an automatic booking — we'll confirm what we can make.</p><div id="pickedList"></div><div class="field"><label for="guestName">Your name (optional)</label><input id="guestName" placeholder="What should I call you?" maxlength="80" autocomplete="name"></div><div class="field"><label for="guestNotes">Allergies, dietary needs or other requests</label><textarea id="guestNotes" placeholder="e.g. No shellfish, less spicy, or a dish you want to try…" maxlength="1200"></textarea></div></div><div class="drawer-bottom"><button class="btn-copy" id="copyOrder">Copy my picks to send ↗</button><div class="share-row"><button class="btn-alt" id="shareOrder">Share on my phone</button><button class="btn-clear" id="clearOrder">Clear all</button></div><p class="drawer-hint">Nothing is submitted to a server. Copy or share your picks yourself.</p></div></aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <a href="#top" class="scroll-top" aria-label="Back to top">↑</a>
+<script>
+  'use strict';
+  // Photos are linked to existing Wikimedia Commons file pages; all are reference images.
+  // Fields: [id, category, English title, origin, short description, photo filename, emoji, status, approximate-photo]
+  const dishes = [
+    [1,'pasta','Spaghetti alla Puttanesca','Italian','Tomato, olives, capers, garlic & chili. Bold and briny.','Puttanesca.JPG','🍝',1,0],
+    [2,'pasta','Potato & Salmon Pesto Pasta','Italian-inspired','Basil pesto, salmon and tender potatoes. Can be served chilled.','Spaghetti al pesto en décembre 2022 à Venise.jpg','🌿',1,1],
+    [3,'mains','Chinese Red-Braised Beef','Chinese','Slow-braised beef with warming spices and a deeply savory sauce.','Chinese Braised Beef (紅燒牛肉).jpg','🥩',1,0],
+    [4,'mains','Tomato & Egg Stir-Fry','Chinese','A humble classic: silky eggs and juicy tomatoes, delicious with rice.','Tomato and eggs.JPG','🍅',1,0],
+    [5,'mains','Beef Curry & Rice','Comfort food','Tender beef, potatoes, onion and richly spiced curry.','Kare-Raisu.jpg','🍛',1,0],
+    [6,'mains','Spanish Garlic Chicken','Spanish','Pollo al ajillo — fragrant garlic, chicken and olive oil.','Pollo al ajillo.jpg','🧄',1,0],
+    [7,'mains','French Beef & Vegetable Soup','French-inspired','A cozy beef and vegetable soup, perfect with crusty bread.','Pot-au-feu soup.jpg','🥣',1,1],
+    [8,'mains','Cantonese Sizzling Claypot','Cantonese-inspired','Ginger, garlic and sizzling meat served family style.','Chicken cooked in clay pot.jpg','🍲',1,1],
+    [9,'mains','Guizhou Dipping Hot Pot','Chinese · Guizhou','A communal hot pot with vegetables, meats and lively chili dipping sauce.','Sichuan-style hotpot.jpg','🌶️',1,1],
+    [10,'mains','Mapo Tofu','Sichuan Chinese','Silky tofu and minced meat in a fragrant chili-bean sauce.','Authentic Mapo Tofu.jpg','🌶️',0,0],
+    [11,'pasta','Spaghetti alle Vongole','Italian','Clams, garlic, olive oil and white wine. Delicate and salty.','Spaghetti alle vongole.jpg','🐚',0,0],
+    [12,'mains','Creamy Dijon Mustard Chicken','French','Chicken and mushrooms in a tangy, gently creamy mustard sauce.','Poulet Gaston Gérard.jpg','🍗',0,1],
+    [13,'pasta','Pasta alla Gricia','Roman Italian','Guanciale, pecorino and black pepper — no tomatoes needed.','Pasta alla Gricia.jpg','🧀',1,0],
+    [14,'mains','White-Wine Hunter’s Chicken','Italian','Chicken cacciatora in bianco: white wine, herbs and garlic.','Chicken cacciatore.jpg','🍗',0,1],
+    [15,'sides','Chilled Tofu with Scallions','East Asian','Silken tofu with scallions, sesame oil and simple seasoning.','Hiyayakko with bonito flakes and welsh onion.jpg','🥢',1,1],
+    [16,'sides','Okra, Bonito & Tofu Salad','Japanese-inspired','Chilled tofu, fresh okra, bonito flakes and soy sauce.','Japanese okra tofu 2014.jpg','🥬',1,1],
+    [17,'sides','Pan-Fried Eggs','Everyday favorite','Simple, golden eggs — excellent on the side or over rice.','Fried Egg1.jpg','🍳',1,0],
+    [18,'breakfast','Fresh Pineapple','Fruit','Sweet-tart fresh pineapple, served chilled.','Pineapple (sliced).jpg','🍍',1,0],
+    [19,'sides','Salmon or Sea Bream Sashimi','Japanese','Fresh sashimi-grade fish, simply served. Availability varies.','Sashimi of salmon.jpg','🐟',0,1],
+    [20,'breakfast','Soy Milk & Milo','Drinks','Unsweetened soy milk with a little chocolate-malt Milo.','Soy milk.jpg','🥛',1,1],
+    [21,'mains','Kimchi & Tofu Stew','Korean','A warming, tangy kimchi stew with tofu and pork.','Gimchi-jjigae.jpg','🥘',1,0],
+    [22,'mains','Thai Chicken Curry','Thai','Chicken, vegetables and aromatic coconut curry with rice.','Chicken Thai Green Curry.jpg','🥥',1,1],
+    [23,'mains','Scallion Beef Stir-Fry','Chinese','Tender thin-sliced beef, generous green onions and black pepper.','HK 沙田北 Shatin North 石門 Shek Mun 安群街 On Kwan Street 京瑞廣場 Kings Wing Plaza shop 南京金陵湯包 Nanjing Jinling Dumpling Restaurant Feb 2019 SSG 05.jpg','🥩',1,0],
+    [24,'pasta','Creamy Mushroom Pasta','Italian-inspired','Mushrooms, cream, garlic and cheese — comfort in a bowl.','Creamy Mushroom Pasta.jpg','🍄',1,0],
+    [25,'mains','Louisiana Red Beans & Rice','Louisiana / Creole','Slow-simmered red beans, smoky sausage, vegetables and rice.','Red beans and rice.jpg','🍚',1,1],
+    [26,'mains','Alsatian Choucroute Garnie','French · Alsace','Tangy sauerkraut with sausages, pork and potatoes.','Choucroute-garni 1.JPG','🥬',1,0],
+    [27,'sides','Tuna, Salmon & Mozzarella Salad','Mediterranean-inspired','A hearty seafood salad with buffalo mozzarella and fresh greens.','Salad with mozzarella.jpg','🥗',1,1],
+    [28,'sides','Horse Mackerel Namerō','Japanese · Chiba','Minced sashimi-grade horse mackerel with miso, ginger and scallion.','Namerou 001.jpg','🐟',0,0],
+    [29,'sides','French Mackerel Rillettes','French','A creamy, lemony mackerel spread with mustard. Lovely with bread.','Rilette de saumon.jpg','🥖',0,1],
+    [30,'sides','Salmon & Tuna Garden Salad','Light meal','Sashimi-grade salmon, oil-packed tuna, crisp vegetables and lemon.','Sashimi Salad (3469819385).jpg','🥗',0,1],
+    [31,'breakfast','Singapore Kaya Toast & Eggs','Singaporean','Crisp kaya-and-butter toast with soft-boiled eggs.','Kaya toast with butter set, Ya Kun Kaya Toast, KLIA1, 2025 (01).jpg','🍞',0,0],
+    [32,'mains','Korean Beef Ssambap','Korean','Lettuce wraps with rice, savory beef, pickles and ssamjang.','Korean cuisine-Ssambap-01.jpg','🥬',0,1],
+    [33,'mains','Dongbei Rice & Lettuce Wraps','Northeastern Chinese','A big lettuce wrap stuffed with rice, mashed potato and egg sauce.','Korean food-Bibim ssambap and various banchan-01.jpg','🍚',0,1],
+    [34,'sides','Northern-Style Savory Tofu Pudding','Chinese','Silky tofu pudding with mushrooms, soy gravy and chili oil.','Laodoufu 老豆腐 Doufunao 豆腐脑 (Tofu Pudding).jpg','🥣',0,0],
+    [35,'mains','Dumplings, Garlic Sausage & Cucumber','Chinese','A casual spread of boiled dumplings, garlic sausage and smashed cucumber.','Chinese dumplings (Jiaozi) (2196005904).jpg','🥟',0,1],
+    [36,'mains','Sichuan Chicken Cold Noodles','Sichuan Chinese','Chilled noodles, shredded chicken, cucumber, sesame and chili oil.','涼麵Cold noodles.jpg','🍜',0,1],
+    [37,'sides','Italian White Bean & Tuna Salad','Italian','Cannellini beans, tuna, red onion, parsley and lemon.','Salad with beans and tuna.jpg','🥗',0,1]
+  ].map(([id,category,name,origin,description,file,emoji,mastered,approx])=>({id,category,name,origin,description,file,emoji,mastered:!!mastered,approx:!!approx}));
+
+  // Wikimedia Commons' official cross-origin API resolves real thumbnail URLs.
+  // Do not synthesize an upload.wikimedia.org hash path from a filename.
+  // Fallbacks are independently verified free Unsplash food photos, not dish-specific claims.
+  const PHOTO_SEARCH = {"1": "spaghetti puttanesca food", "2": "pesto pasta salmon food", "3": "Chinese braised beef food", "4": "tomato scrambled egg Chinese dish", "5": "Japanese beef curry rice", "6": "pollo al ajillo chicken", "7": "pot au feu French beef soup", "8": "clay pot chicken Cantonese", "9": "Guizhou hot pot Chinese", "10": "mapo tofu dish", "11": "spaghetti alle vongole clams", "12": "chicken Dijon mustard sauce", "13": "pasta alla gricia", "14": "chicken cacciatore white wine", "15": "hiyayakko Japanese tofu", "16": "okra tofu bonito Japanese", "17": "fried eggs food", "18": "pineapple cut fruit", "19": "salmon sashimi Japanese food", "20": "soy milk glass", "21": "kimchi jjigae tofu Korean", "22": "Thai green chicken curry", "23": "beef scallion stir fry", "24": "mushroom creamy pasta", "25": "red beans and rice Louisiana", "26": "choucroute garnie Alsace", "27": "salmon tuna mozzarella salad", "28": "namerou Japanese horse mackerel", "29": "mackerel rillettes spread", "30": "salmon tuna salad vegetables", "31": "kaya toast soft boiled eggs Singapore", "32": "Korean ssambap lettuce wraps", "33": "Dongbei rice lettuce wrap Chinese", "34": "douhua savory tofu pudding", "35": "Chinese jiaozi dumplings", "36": "Sichuan chicken cold noodles", "37": "white bean tuna salad Italian"};
+  const fallbackPhotos = {
+    pasta: {url:'https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?auto=format&fit=crop&w=760&q=80',source:'https://unsplash.com/photos/pasta-in-white-ceramic-bowl-2CZ0Zpuj-gU',license:'Unsplash License · reference pasta photo'},
+    mains: {url:'https://images.unsplash.com/photo-1608500218987-0f2b3be34b47?auto=format&fit=crop&w=760&q=80',source:'https://unsplash.com/photos/cooked-food-in-white-ceramic-bowl-gbtQfadV5qY',license:'Unsplash License · reference stew photo'},
+    sides: {url:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=760&q=80',source:'https://unsplash.com/photos/bowl-of-vegetable-salads-IGfIGP5ONV0',license:'Unsplash License · reference salad photo',author:'Anna Pelzer'},
+    breakfast: {url:'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=760&q=80',source:'https://unsplash.com/s/photos/eggs-and-toast',license:'Unsplash License · reference breakfast photo'}
+  };
+  const knownImage = new Map(); const inFlight = new Map(); let photoObserver;
+  const STORE_KEY = 'home-table-commons-photos-v4';
+  try {
+    const previous = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+    for(const [id,record] of Object.entries(previous)) {
+      if(record && typeof record.url==='string' && /^https:\/\//.test(record.url) && record.source && Date.now()-record.time < 7*86400000) knownImage.set(Number(id),record);
+    }
+  } catch(e) { /* Browser storage may be disabled, photos still work. */ }
+  const staticPhotoURL = file => 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(file.replaceAll(' ','_')) + '?width=760';
+  const recordCredit = d => knownImage.get(d.id) || {url:staticPhotoURL(d.file),source:'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(d.file.replaceAll(' ','_')),license:'See linked Commons file page for license',author:'Wikimedia Commons photographer'};
+  const photoURL = d => recordCredit(d).url;
+  const wikimediaFile = file => 'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(file.replaceAll(' ','_'));
+  const defaultCredit = d => recordCredit(d).source;
+  const cleanHTML = value => String(value||'').replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').replace(/&quot;/g,'"');
+  async function searchCommons(d, fallbackTerm=false) {
+    const term = fallbackTerm ? d.name.replace(/[^\w\s]/g,' ').replace(/\s+/g,' ').trim() : PHOTO_SEARCH[d.id];
+    const u = new URL('https://commons.wikimedia.org/w/api.php');
+    u.search = new URLSearchParams({action:'query',format:'json',formatversion:'2',generator:'search',gsrnamespace:'6',gsrsearch:term,gsrlimit:'8',prop:'imageinfo',iiprop:'url|mime|extmetadata',iiurlwidth:'800',origin:'*'}).toString();
+    const controller = new AbortController(); const timeout = setTimeout(()=>controller.abort(),11000);
+    try {
+      const response = await fetch(u.toString(),{signal:controller.signal,credentials:'omit'});
+      if(!response.ok) throw new Error('Commons response '+response.status);
+      const json = await response.json();
+      const candidates=(json.query?.pages||[]).filter(p=>p.imageinfo?.length)
+       .filter(p=>/\.(?:jpe?g|png|webp)$/i.test(p.title||''))
+       .filter(p=>/^image\/(?:jpeg|png|webp)/.test(p.imageinfo[0].mime||'image/jpeg'));
+      for(const p of candidates){
+        const info=p.imageinfo[0], url=info.thumburl||info.url;
+        if(!url || !/^https:\/\//.test(url)) continue;
+        const ext=info.extmetadata||{};
+        return {url,source:info.descriptionurl||'https://commons.wikimedia.org/wiki/'+encodeURIComponent(p.title.replaceAll(' ','_')),license:cleanHTML(ext.LicenseShortName?.value||'See source file for license'),author:cleanHTML(ext.Artist?.value||'Photographer listed on source'),title:p.title,time:Date.now()};
+      }
+      if(!fallbackTerm) return searchCommons(d,true);
+      throw new Error('No photograph found for '+term);
+    } finally {clearTimeout(timeout)}
+  }
+  function updateAllPhotoNodes(id,record){
+    document.querySelectorAll('img[data-photo-id="'+id+'"]').forEach(el=>{
+      if(el.dataset.activeUrl===record.url) return;
+      el.dataset.activeUrl=record.url;
+      el.onload=()=>{el.closest('.photo-wrap')?.classList.remove('failed')};
+      el.onerror=()=>{el.closest('.photo-wrap')?.classList.add('failed')};
+      el.src=record.url;
+    });
+    document.querySelectorAll('a[data-photo-credit="'+id+'"]').forEach(a=>{a.href=record.source;a.title='Photograph: '+(record.author||'view source')+'; '+record.license});
+    if(Number(id)===3){const hero=document.getElementById('heroImage');if(hero){hero.onload=()=>{hero.style.display='block'};hero.onerror=()=>{hero.src=fallbackPhotos.mains.url;hero.onerror=()=>hero.style.display='none'};hero.src=record.url}}
+    if(Number(id)===1){const closing=document.getElementById('closingImage');if(closing){closing.onload=()=>{closing.style.display='block'};closing.onerror=()=>{closing.src=fallbackPhotos.pasta.url;closing.onerror=()=>closing.style.display='none'};closing.src=record.url}}
+  }
+  function refreshCredits(){
+    const grid=document.getElementById('creditGrid'); if(!grid) return;
+    grid.innerHTML=dishes.map(d=>{const p=recordCredit(d);return `<a href="${p.source}" target="_blank" rel="noopener noreferrer">${String(d.id).padStart(2,'0')} · ${escapeHTML(d.name)} · ${escapeHTML(p.author||'Photo source')} · ${escapeHTML(p.license||'View photo license')} ↗</a>`}).join('');
+  }
+  async function resolvePhoto(id){
+    const d=dishes.find(x=>x.id===Number(id));if(!d || knownImage.has(d.id)) return;
+    if(inFlight.has(d.id)) return inFlight.get(d.id);
+    const job=searchCommons(d).then(record=>{
+      knownImage.set(d.id,record);updateAllPhotoNodes(d.id,record);
+      try {localStorage.setItem(STORE_KEY,JSON.stringify(Object.fromEntries([...knownImage.entries()].map(([key,v])=>[key,v]))))}catch(e){}
+      refreshCredits();
+    }).catch(()=>{ /* On an unavailable Commons file or API response, try a category photo. */
+      document.querySelectorAll('img[data-photo-id="'+d.id+'"]').forEach(el=>{
+        if(el.closest('.photo-wrap')?.classList.contains('failed')){
+          el.onload=()=>{el.closest('.photo-wrap')?.classList.remove('failed')};
+          el.onerror=()=>{el.closest('.photo-wrap')?.classList.add('failed')};
+          el.src=fallbackPhotos[d.category].url;
+          const credit=el.closest('.photo-wrap')?.querySelector('a[data-photo-credit]');
+          if(credit){credit.href=fallbackPhotos[d.category].source;credit.title='Illustrative category photograph';}
+        }
+      });
+    }).finally(()=>inFlight.delete(d.id));
+    inFlight.set(d.id,job);return job;
+  }
+  function hydratePhotos(){
+    document.querySelectorAll('img[data-photo-id]').forEach(img=>{
+      const id=Number(img.dataset.photoId);
+      if(knownImage.has(id)) updateAllPhotoNodes(id,knownImage.get(id));
+      else if(photoObserver)photoObserver.observe(img);
+      else resolvePhoto(id);
+    });
+  }
+  if('IntersectionObserver' in window)photoObserver=new IntersectionObserver(entries=>{
+    for(const entry of entries){if(entry.isIntersecting){photoObserver.unobserve(entry.target);resolvePhoto(Number(entry.target.dataset.photoId))}}
+  },{rootMargin:'550px 0px'});
+  const selected = new Set(); let category = 'all'; let query = ''; let lastFocus = null; let toastTimer;
+  const $ = id => document.getElementById(id);
+  const escapeHTML = text => String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const categories = {mains:'Main dish',pasta:'Pasta',sides:'Small plate',breakfast:'Breakfast & treats'};
+  const img = (d, loading='lazy')=>`<img src="${photoURL(d)}" data-photo-id="${d.id}" alt="Reference food photograph, illustrative only: ${escapeHTML(d.name)}" loading="${loading}" decoding="async" onload="this.closest('.photo-wrap')?.classList.remove('failed')" onerror="this.closest('.photo-wrap')?.classList.add('failed')">`;
+  function photoMarkup(d){return `<div class="photo-wrap">${img(d)}<div class="photo-fallback"><small>Photo needs internet access</small></div><span class="tag">${d.mastered ? 'Made before' : 'On request'}</span><a class="source-pill" data-photo-credit="${d.id}" href="${defaultCredit(d)}" target="_blank" rel="noopener noreferrer" title="Open image source, author and license">Photo credit ↗</a></div>`}
+  function renderMenu(){
+    const found = dishes.filter(d=>(category==='all'||d.category===category) && (d.name+' '+d.origin+' '+d.description).toLowerCase().includes(query));
+    $('resultCount').textContent = `Showing ${found.length} of ${dishes.length} dishes`;
+    $('menuGrid').innerHTML = found.length ? found.map(d=>`<article class="dish ${selected.has(d.id)?'selected':''}" data-id="${d.id}">${photoMarkup(d)}<div class="dish-body"><p class="dish-meta"><span>${escapeHTML(d.origin)}</span></p><h3>${escapeHTML(d.name)}</h3><p class="dish-desc">${escapeHTML(d.description)}</p><div class="dish-foot"><span class="detail">${d.emoji} ${categories[d.category]}</span><button class="add" data-pick="${d.id}" aria-pressed="${selected.has(d.id)}"><span>${selected.has(d.id)?'✓':'+'}</span> ${selected.has(d.id)?'Added':'Add to my picks'}</button></div></div></article>`).join('') : `<div class="empty" style="grid-column:1/-1"><b>No dishes found</b>Try a different search or category.</div>`;
+    hydratePhotos();
+  }
+  function renderDrawer(){
+    const picks=dishes.filter(d=>selected.has(d.id));
+    $('headerCount').textContent=`(${picks.length})`; $('modalCount').textContent=picks.length;
+    $('trayCount').textContent=`${picks.length} dish${picks.length===1?'':'es'} picked`;
+    $('tray').classList.toggle('show',picks.length>0);
+    $('pickedList').innerHTML=picks.length ? picks.map(d=>`<div class="picked-item"><div class="photo-wrap" style="width:65px;height:54px;border-radius:7px;flex:none;aspect-ratio:auto">${img(d)}<div class="photo-fallback"><small>Photo</small></div></div><div><strong>${escapeHTML(d.name)}</strong><small>${escapeHTML(d.origin)}</small></div><button class="remove" aria-label="Remove ${escapeHTML(d.name)}" data-remove="${d.id}">×</button></div>`).join('') : '<div class="empty"><b>No dishes selected yet</b>Explore the menu and tap “Add to my picks.”</div>';
+    hydratePhotos();
+  }
+  function toggleDish(id){selected.has(id)?selected.delete(id):selected.add(id);renderMenu();renderDrawer()}
+  function openDrawer(){lastFocus=document.activeElement;$('drawer').classList.add('show');$('veil').classList.add('show');$('drawer').setAttribute('aria-hidden','false');document.body.style.overflow='hidden';$('closeDrawer').focus()}
+  function closeDrawer(){ $('drawer').classList.remove('show');$('veil').classList.remove('show');$('drawer').setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastFocus?.focus)lastFocus.focus() }
+  function orderText(){
+    const picks = dishes.filter(d=>selected.has(d.id)); const name=$('guestName').value.trim(); const notes=$('guestNotes').value.trim();
+    return `Hi! I'd love to try these dishes at your place 🍽️\n\n${picks.length?picks.map(d=>'• '+d.name).join('\n'):'(No dishes selected yet)'}${name?'\n\nFrom: '+name:''}${notes?'\n\nAllergies / requests:\n'+notes:''}\n\nLet me know what works for ingredients and timing!`;
+  }
+  function notify(message){clearTimeout(toastTimer);$('toast').textContent=message;$('toast').classList.add('show');toastTimer=setTimeout(()=>$('toast').classList.remove('show'),3100)}
+  async function copyOrder(){
+    const text=orderText();try{if(!navigator.clipboard?.writeText) throw new Error('Unavailable');await navigator.clipboard.writeText(text);notify('Copied! Paste your picks into a message.')}catch(e){const t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.top='0';t.style.opacity='0';document.body.appendChild(t);t.select();const ok=document.execCommand('copy');t.remove();notify(ok?'Copied! Paste your picks into a message.':'Copy unavailable in this browser. Try Share instead.')}
+  }
+  async function shareOrder(){const text=orderText();if(navigator.share){try{await navigator.share({title:'My picks for dinner',text})}catch(e){if(e.name!=='AbortError')await copyOrder()}}else await copyOrder()}
+  $('filterTabs').addEventListener('click',e=>{const btn=e.target.closest('[data-category]');if(!btn)return;category=btn.dataset.category;document.querySelectorAll('[data-category]').forEach(b=>{const active=b===btn;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});renderMenu()});
+  $('searchInput').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();renderMenu()});
+  $('menuGrid').addEventListener('click',e=>{const btn=e.target.closest('[data-pick]');if(btn)toggleDish(Number(btn.dataset.pick))});
+  $('pickedList').addEventListener('click',e=>{const btn=e.target.closest('[data-remove]');if(btn)toggleDish(Number(btn.dataset.remove))});
+  for(const id of ['headerOrder','trayOpen','closingOrder'])$(id).addEventListener('click',openDrawer);
+  $('closeDrawer').addEventListener('click',closeDrawer);$('veil').addEventListener('click',closeDrawer);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('drawer').classList.contains('show'))closeDrawer()});
+  $('copyOrder').addEventListener('click',copyOrder);$('shareOrder').addEventListener('click',shareOrder);
+  $('clearOrder').addEventListener('click',()=>{selected.clear();renderMenu();renderDrawer();notify('Your selections have been cleared.')});
+  refreshCredits();
+  $('heroImage').src=photoURL(dishes.find(d=>d.id===3)); resolvePhoto(3);
+  $('closingImage').src=photoURL(dishes.find(d=>d.id===1)); resolvePhoto(1);
+  renderMenu();renderDrawer();
+</script>
+</body>
+</html>
