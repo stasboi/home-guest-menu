@@ -99,7 +99,7 @@
 
   // Wikimedia Commons' official cross-origin API resolves real thumbnail URLs.
   // Do not synthesize an upload.wikimedia.org hash path from a filename.
-  // Fallbacks are independently verified free Unsplash food photos, not dish-specific claims.
+  // Category fallbacks are illustrative Unsplash photos, not dish-specific claims.
   const PHOTO_SEARCH = {"1": "spaghetti puttanesca food", "2": "pesto pasta salmon food", "3": "Chinese braised beef food", "4": "tomato scrambled egg Chinese dish", "5": "Japanese beef curry rice", "6": "pollo al ajillo chicken", "7": "pot au feu French beef soup", "8": "clay pot chicken Cantonese", "9": "Guizhou hot pot Chinese", "10": "mapo tofu dish", "11": "spaghetti alle vongole clams", "12": "chicken Dijon mustard sauce", "13": "pasta alla gricia", "14": "chicken cacciatore white wine", "15": "hiyayakko Japanese tofu", "16": "okra tofu bonito Japanese", "17": "fried eggs food", "18": "pineapple cut fruit", "19": "salmon sashimi Japanese food", "20": "soy milk glass", "21": "kimchi jjigae tofu Korean", "22": "Thai green chicken curry", "23": "beef scallion stir fry", "24": "mushroom creamy pasta", "25": "red beans and rice Louisiana", "26": "choucroute garnie Alsace", "27": "salmon tuna mozzarella salad", "28": "namerou Japanese horse mackerel", "29": "mackerel rillettes spread", "30": "salmon tuna salad vegetables", "31": "kaya toast soft boiled eggs Singapore", "32": "Korean ssambap lettuce wraps", "33": "Dongbei rice lettuce wrap Chinese", "34": "douhua savory tofu pudding", "35": "Chinese jiaozi dumplings", "36": "Sichuan chicken cold noodles", "37": "white bean tuna salad Italian"};
   const fallbackPhotos = {
     pasta: {url:'https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?auto=format&fit=crop&w=760&q=80',source:'https://unsplash.com/photos/pasta-in-white-ceramic-bowl-2CZ0Zpuj-gU',license:'Unsplash License · reference pasta photo'},
@@ -148,7 +148,7 @@
       if(el.dataset.activeUrl===record.url) return;
       el.dataset.activeUrl=record.url;
       el.onload=()=>{el.closest('.photo-wrap')?.classList.remove('failed')};
-      el.onerror=()=>{el.closest('.photo-wrap')?.classList.add('failed')};
+      el.onerror=()=>{if(!el.dataset.backup){el.dataset.backup='1';el.src=fallbackPhotos[dishes.find(d=>d.id===Number(id)).category].url}else{el.closest('.photo-wrap')?.classList.add('failed')}};
       el.src=record.url;
     });
     document.querySelectorAll('a[data-photo-credit="'+id+'"]').forEach(a=>{a.href=record.source;a.title='Photograph: '+(record.author||'view source')+'; '+record.license});
@@ -194,7 +194,7 @@
   const $ = id => document.getElementById(id);
   const escapeHTML = text => String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const categories = {mains:'Main dish',pasta:'Pasta',sides:'Small plate',breakfast:'Breakfast & treats'};
-  const img = (d, loading='lazy')=>`<img src="${photoURL(d)}" data-photo-id="${d.id}" alt="Reference food photograph, illustrative only: ${escapeHTML(d.name)}" loading="${loading}" decoding="async" onload="this.closest('.photo-wrap')?.classList.remove('failed')" onerror="this.closest('.photo-wrap')?.classList.add('failed')">`;
+  const img = (d, loading='lazy')=>`<img src="${photoURL(d)}" data-photo-id="${d.id}" alt="Reference food photograph, illustrative only: ${escapeHTML(d.name)}" loading="${loading}" decoding="async" onload="this.closest('.photo-wrap')?.classList.remove('failed')" onerror="if(!this.dataset.backup){this.dataset.backup='1';this.src='${fallbackPhotos[d.category].url}'}else{this.closest('.photo-wrap')?.classList.add('failed')}">`;
   function photoMarkup(d){return `<div class="photo-wrap">${img(d)}<div class="photo-fallback"><small>Photo needs internet access</small></div><span class="tag">${d.mastered ? 'Made before' : 'On request'}</span><a class="source-pill" data-photo-credit="${d.id}" href="${defaultCredit(d)}" target="_blank" rel="noopener noreferrer" title="Open image source, author and license">Photo credit ↗</a></div>`}
   function renderMenu(){
     const found = dishes.filter(d=>(category==='all'||d.category===category) && (d.name+' '+d.origin+' '+d.description).toLowerCase().includes(query));
