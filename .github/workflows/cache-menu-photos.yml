@@ -1,0 +1,35 @@
+name: Download and store selected menu photos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/cache-menu-photos.yml"
+      - "photo-sources.json"
+      - "scripts/cache-photos.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  download-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install image tools
+        run: python -m pip install --quiet Pillow
+      - name: Download and convert to local WebP files
+        run: python scripts/cache-photos.py
+      - name: Commit images into this repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/ index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Store actual selected menu photographs in repository [skip ci]"
+            git push origin HEAD:main
+          else
+            echo "Nothing to update"
+          fi
